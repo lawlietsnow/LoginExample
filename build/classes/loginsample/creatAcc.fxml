@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="248.0" prefWidth="570.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="loginsample.CreatAccController">
+  <children>
+    <GridPane layoutX="136.0" layoutY="70.0" prefHeight="76.0" prefWidth="284.0">
+      <children>
+        <Label text="User name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="Pass word:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="userName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <PasswordField fx:id="pass" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="Confirm password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <PasswordField fx:id="cPass" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="53.0" minHeight="0.0" prefHeight="29.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Button layoutX="207.0" layoutY="168.0" mnemonicParsing="false" onAction="#make" text="OK" />
+    <Button layoutX="293.0" layoutY="168.0" mnemonicParsing="false" text="Cancel" />
+  </children>
+</AnchorPane>
