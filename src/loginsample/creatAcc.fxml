@@ -12,10 +12,10 @@
       <children>
         <Label text="User name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <Label text="Pass word:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField fx:id="userName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <PasswordField fx:id="pass" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="userName" prefWidth="200.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <PasswordField fx:id="pass" prefWidth="200.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <Label text="Confirm password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <PasswordField fx:id="cPass" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <PasswordField fx:id="cPass" prefWidth="200.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,5 +29,7 @@
     </GridPane>
     <Button layoutX="207.0" layoutY="168.0" mnemonicParsing="false" onAction="#make" text="OK" />
     <Button layoutX="293.0" layoutY="168.0" mnemonicParsing="false" text="Cancel" />
+    <Label fx:id="labelShow" layoutX="127.0" layoutY="193.0" prefHeight="186.0" prefWidth="99.00009999999747" text="" />
+    <Button layoutX="130.0" layoutY="168.0" mnemonicParsing="false" onAction="#showAcc" text="Show" />
   </children>
 </AnchorPane>

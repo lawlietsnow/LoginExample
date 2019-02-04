@@ -14,8 +14,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import allData.*;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -24,16 +24,23 @@ import javafx.scene.control.TextField;
  * @author thota
  */
 public class FXMLDocumentController {
+    Account acc=new Account("1","1");
     @FXML TextField user;
     @FXML PasswordField pass;
     @FXML
     public void log(ActionEvent e){
-        if(correct(user.getText(),pass.getText())) {
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("thông báo:");
             alert.setContentText("Đăng nhập thành công");
             
-        }
+            System.out.println("Login");
+            alert.show();
+            
+        
+    }
+    @FXML Label labelShow;
+    @FXML
+    public void showAcc(ActionEvent e){
     }
     @FXML 
     public void creat(ActionEvent e){
@@ -47,9 +54,6 @@ public class FXMLDocumentController {
         }
     }
     public boolean correct(String u,String p){
-        for(Account acc:ListAcc.list){
-            if(acc.user.equals(u)&&acc.pass.equals(p)) return true;
-        }
-        return false;
+        return true;
     }
 }
