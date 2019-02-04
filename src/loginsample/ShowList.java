@@ -11,7 +11,7 @@ package loginsample;
  */
 public class ShowList {
     public static void main(String[] args) {
-//        for(Account acc:CreatAccController.data.list){
+//        for(Account acc:ListAcc.list){
 //            System.out.println(acc.toString());
 //        }
     }
