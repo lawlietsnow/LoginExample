@@ -70,7 +70,9 @@ public class FXMLDocumentController {
     public boolean correct(String u, String p) {
         String s="";
         try {
-            BufferedReader read=new BufferedReader(new FileReader("src\\loginsample\\data.txt"));
+            File f=new File("src\\loginsample\\data.txt");
+            if(!f.exists()) f.createNewFile();
+            BufferedReader read=new BufferedReader(new FileReader(f));
             String str=read.readLine();
             while(str!=null){
                 if(str.equals(u+"+"+p))return true;

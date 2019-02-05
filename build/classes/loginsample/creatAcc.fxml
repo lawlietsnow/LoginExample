@@ -29,7 +29,5 @@
     </GridPane>
     <Button layoutX="207.0" layoutY="168.0" mnemonicParsing="false" onAction="#make" text="OK" />
     <Button layoutX="293.0" layoutY="168.0" mnemonicParsing="false" text="Cancel" />
-    <Label fx:id="labelShow" layoutX="127.0" layoutY="193.0" prefHeight="186.0" prefWidth="99.00009999999747" text="" />
-    <Button layoutX="130.0" layoutY="168.0" mnemonicParsing="false" onAction="#showAcc" text="Show" />
   </children>
 </AnchorPane>
