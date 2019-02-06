@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
  */
 public class FXMLDocumentController {
 
-    Account acc = new Account("1", "1");
+    public static Stage stage;
     @FXML
     TextField user;
     @FXML
@@ -59,7 +59,7 @@ public class FXMLDocumentController {
     public void creat(ActionEvent e) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("creatAcc.fxml"));
-            Stage stage = new Stage();
+            stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
@@ -68,7 +68,6 @@ public class FXMLDocumentController {
     }
 
     public boolean correct(String u, String p) {
-        String s="";
         try {
             File f=new File("src\\loginsample\\data.txt");
             if(!f.exists()) f.createNewFile();
