@@ -39,10 +39,11 @@ public class CreatAccController {
     @FXML
     void make(ActionEvent event) {//&&ablePass(pass.getText(),cPass.getText())
 
-        if (ablePass(pass.getText(), cPass.getText())) {
+        if (ableConfirmPass(pass.getText(), cPass.getText())) {
             if (ableUser(userName.getText()))
              {
-                BufferedWriter bw = null;
+                if(ablePass(pass.getText()){
+                    BufferedWriter bw = null;
                 FileWriter fw = null;
 
                 try {
@@ -62,14 +63,20 @@ public class CreatAccController {
                 } catch (IOException e) {
                     e.printStackTrace();
 
+                }else{
+                    //pass ko hop le
                 }
+                }   
             }
             else {
                 Alert al=new Alert(Alert.AlertType.INFORMATION);
                 al.setContentText("Tên đăng nhập đã được sử dụng");
                 al.show();
             }
+        }else{
+            //confirm sai
         }
+                   
 
     }
 
@@ -79,6 +86,7 @@ public class CreatAccController {
     }
 
     public static boolean ableUser(String u) {
+        if(u.length()<2) return false;
         try {
             File f = new File("src\\loginsample\\data.txt");
             if (!f.exists()) {
@@ -101,7 +109,10 @@ public class CreatAccController {
         return true;
     }
 
-    public static boolean ablePass(String p, String cp) {
-        return p.equals(cp);
+    public static boolean ablePass(String p) {
+        return p.length()<6;
     }
+    public static boolean ableConfirmPass(String p,String cp){
+        return p.equals(cp);
+    }    
 }
