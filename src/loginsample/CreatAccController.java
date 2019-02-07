@@ -39,44 +39,83 @@ public class CreatAccController {
     @FXML
     void make(ActionEvent event) {//&&ablePass(pass.getText(),cPass.getText())
 
-        if (ableConfirmPass(pass.getText(), cPass.getText())) {
-            if (ableUser(userName.getText()))
-             {
-                if(ablePass(pass.getText()){
-                    BufferedWriter bw = null;
-                FileWriter fw = null;
+//        if (ableConfirmPass(pass.getText(), cPass.getText())) {
+//            if (ableUser(userName.getText()))
+//             {
+//                if(ablePass(pass.getText())){
+//                    BufferedWriter bw = null;
+//                FileWriter fw = null;
+//
+//                try {
+//                    String data = userName.getText() + "+" + pass.getText() + "\n";
+//
+//                    File file = new File("src\\loginsample\\data.txt");
+//
+//                    if (!file.exists()) {
+//                        file.createNewFile();
+//                    }
+//                    fw = new FileWriter(file.getAbsoluteFile(), true);
+//                    bw = new BufferedWriter(fw);
+//                    bw.write(data);
+//                    bw.close();
+//                    FXMLDocumentController.stage.close();
+//
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//
+//                }
+//                }else{
+//                    //pass ko hop le
+//                }   
+//            }
+//            else {
+//                Alert al=new Alert(Alert.AlertType.INFORMATION);
+//                al.setContentText("Tên đăng nhập đã được sử dụng");
+//                al.show();
+//            }
+//        }else{
+//            //confirm sai
+//        }
+        Alert al;
+        if (ableConfirmPass(pass.getText(), cPass.getText()) && ableUser(userName.getText()) && ablePass(pass.getText())) {
+            BufferedWriter bw = null;
+            FileWriter fw = null;
 
-                try {
-                    String data = userName.getText() + "+" + pass.getText() + "\n";
+            try {
+                String data = userName.getText() + "+" + pass.getText() + "\n";
 
-                    File file = new File("src\\loginsample\\data.txt");
+                File file = new File("src\\loginsample\\data.txt");
 
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fw = new FileWriter(file.getAbsoluteFile(), true);
-                    bw = new BufferedWriter(fw);
-                    bw.write(data);
-                    bw.close();
-                    FXMLDocumentController.stage.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-
-                }else{
-                    //pass ko hop le
+                if (!file.exists()) {
+                    file.createNewFile();
                 }
-                }   
+                fw = new FileWriter(file.getAbsoluteFile(), true);
+                bw = new BufferedWriter(fw);
+                bw.write(data);
+                bw.close();
+                FXMLDocumentController.stage.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
             }
-            else {
-                Alert al=new Alert(Alert.AlertType.INFORMATION);
-                al.setContentText("Tên đăng nhập đã được sử dụng");
+            al = new Alert(Alert.AlertType.INFORMATION);
+            al.setContentText("Xác nhận mật khẩu sai");
+            al.show();
+        } else {
+            al = new Alert(Alert.AlertType.ERROR);
+            if (!ableConfirmPass(pass.getText(), cPass.getText())) {
+
+                al.setContentText("Xác nhận mật khẩu sai");
+                al.show();
+            } else if (!ableUser(userName.getText())) {
+                al.setContentText("Tên đăng nhập đã bị sử dụng");
+                al.show();
+            } else if (!ablePass(pass.getText())) {
+                al.setContentText("Mật khẩu không hợp lệ");
                 al.show();
             }
-        }else{
-            //confirm sai
         }
-                   
 
     }
 
@@ -86,7 +125,9 @@ public class CreatAccController {
     }
 
     public static boolean ableUser(String u) {
-        if(u.length()<2) return false;
+        if (u.length() < 2) {
+            return false;
+        }
         try {
             File f = new File("src\\loginsample\\data.txt");
             if (!f.exists()) {
@@ -110,9 +151,10 @@ public class CreatAccController {
     }
 
     public static boolean ablePass(String p) {
-        return p.length()<6;
+        return p.length() >= 6;
     }
-    public static boolean ableConfirmPass(String p,String cp){
+
+    public static boolean ableConfirmPass(String p, String cp) {
         return p.equals(cp);
-    }    
+    }
 }
